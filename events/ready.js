@@ -1,4 +1,4 @@
-const { Events } = require("discord.js");
+const { Events, ActivityType } = require("discord.js");
 const { REST } = require("@discordjs/rest");
 
 module.exports = {
