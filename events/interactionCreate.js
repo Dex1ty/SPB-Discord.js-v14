@@ -5,7 +5,7 @@ module.exports = {
     name: Events.InteractionCreate,
     once: false,
     async run(client, interaction) {
-  if (!interaction.isCommand()) {
+  if (!interaction.isChatInputCommand()) {
     return
   }
   const slashComms = client.slashCommands.get(interaction.commandName);
