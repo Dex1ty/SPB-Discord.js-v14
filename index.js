@@ -27,6 +27,7 @@ const guildId = process.env['guildID'] //TEMP FOR TESTING PURPOSES
 
 //Slash Commands handler
 const path = require("path");
+const rest = new REST({ version: '10' }).setToken(token);     
 const slashCommands = []
 client.slashCommands = new Collection();
 
