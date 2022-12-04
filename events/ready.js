@@ -5,12 +5,6 @@ module.exports = {
     name: Events.ClientReady,
     once: false,
     run(client){
-            const rest = new REST({ version: '10' }).setToken(token);
-        
-
-
-
-
              //PRESENCE - MORE NEEDS TO BE ADDED
             const status = [
             `My prefix is !`,
