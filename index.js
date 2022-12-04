@@ -2,6 +2,7 @@
 const { Client, Events, GatewayIntentBits, ActivityType, Collection } = require("discord.js");
 const { REST } = require("@discordjs/rest")
 const { Routes } = require('discord-api-types/v9')
+const { readdirSync, read } = require("fs");
 
 //  Getting the token from the config
 const token = process.env["token"];
@@ -45,7 +46,7 @@ slashCommands.push(slashComm.data.toJSON());
 
 //EVENTS HANDLER
 const eventsPath = path.join(__dirname, 'events');
-const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+const eventFiles = readdirSync(eventsPath).filter(file => file.endsWith('.js'));
 
 for (const file of eventFiles) {
 	const filePath = path.join(eventsPath, file);
