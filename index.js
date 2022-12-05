@@ -63,27 +63,47 @@ slashCommands.push(slashComm.data.toJSON());
   })();
 
 
-//EVENTS HANDLER
-const eventsPath = path.join(__dirname, 'events');
-const eventFiles = readdirSync(eventsPath).filter(file => file.endsWith('.js'));
+  client.on(Events.ClientReady, a => {
+    //PRESENCE - MORE NEEDS TO BE ADDED
+    const status = [
+     `My prefix is !`,
+     `Vibing with Dex1ty!`,
+     `Vibing with Bob`,
+     `Gotta Mic?`
+     ];
+   
+     let index = 0;
+     setInterval(() => {
+       if(index === status.length) index = 0;
+       const statusQ = status[index];
+       client.user.setPresence({ activities: [{ name: `/help | ${statusQ}`, type: ActivityType.Playing }], status: "dnd" }); 
+       index++;
+     }, 20000)
+     console.log("Senpai Bot is now Online.");
 
-for (const file of eventFiles) {
-	const filePath = path.join(eventsPath, file);
-	const event = require(filePath);
-	if (event.once) {
-		client.once(event.name, (...args) => event.run(...args));
-	} else {
-		client.on(event.name, (...args) => event.run(...args));
-	}
+     console.log(client.guilds.cache.size);
+})
+
+
+
+
+client.on(Events.InteractionCreate, async (interaction) => {
+if (!interaction.isChatInputCommand()) {
+return
+}
+const slashComms = client.slashCommands.get(interaction.commandName);
+if (!slashComms) {
+console.error(`No command matching ${interaction.commandName} was found.`);
+return;
 }
 
-
-
-
-
-
-
-
+try {
+await slashComms.run({client, interaction});
+} catch (error) {
+console.error(error);
+await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+}
+} )
 
 
 client.login(token)
