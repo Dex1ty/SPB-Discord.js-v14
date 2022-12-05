@@ -7,6 +7,5 @@ module.exports = {
         async run({client, interaction}) {
             const messagee = await interaction.reply(`Ping: ${client.ws.ping}`)
 
-            messagee.editReply(`Ping: ${client.ws.ping} ms.\nMessage Ping: ${messagee.createdTimestamp - interaction.createdTimestamp} ms.`);
         }    
 }
