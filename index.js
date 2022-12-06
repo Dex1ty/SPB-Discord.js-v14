@@ -20,6 +20,14 @@ const client = new Client({
   ],
 });
 
+// Creating the Client player instance
+client.player = new Player(client, {
+  ytdlOptions: {
+    quality: "highestaudio",
+    highWaterMark: 1 << 25
+  }
+});
+
 
 // Getting the IDs for both client & guild for slashcommands
 const clientId = process.env['clientID'];
@@ -27,6 +35,7 @@ const guildId = process.env['guildID'] //TEMP FOR TESTING PURPOSES
 
 //Slash Commands handler
 const path = require("path");
+const { Player } = require("discord-player");
 const rest = new REST({ version: '10' }).setToken(token);     
 const slashCommands = []
 client.slashCommands = new Collection();
