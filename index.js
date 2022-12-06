@@ -3,6 +3,7 @@ const { Client, Events, GatewayIntentBits, ActivityType, Collection } = require(
 const { REST } = require("@discordjs/rest")
 const { Routes } = require('discord-api-types/v9')
 const { readdirSync, read } = require("fs");
+const { Player } = require("discord-player");
 
 //  Getting the token from the config
 const token = process.env["token"];
