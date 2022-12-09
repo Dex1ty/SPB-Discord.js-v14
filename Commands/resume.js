@@ -22,6 +22,8 @@ module.exports = {
                     new Discord.EmbedBuilder()
                         .setDescription(`Paused **${currentSong.title}**`)
                         .setThumbnail(currentSong.thumbnail)
+                        .setColor("AQUA")
+
                 ]
             })
         }

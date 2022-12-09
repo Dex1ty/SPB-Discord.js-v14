@@ -70,7 +70,7 @@ module.exports = {
                  .setThumbnail(song.thumbnail)
                  .setFooter({text: `Duration ${song.duration}`})
                  .setAuthor({name: interaction.user.tag})
-
+                 .setColor("AQUA")
         }
         else if(interaction.options.getSubcommand() === "playlist") {
             let url = interaction.options.getString("url");
@@ -92,7 +92,7 @@ module.exports = {
                  .setThumbnail(playlist.thumbnail)
                  .setFooter({text: `Duration ${playlist.duration}`})
                  .setAuthor({name: interaction.user.tag})
-
+                 .setColor("AQUA")
         }
         else if(interaction.options.getSubcommand() === "search") {
             let url = interaction.options.getString("query");
@@ -114,7 +114,7 @@ module.exports = {
                  .setThumbnail(song.thumbnail)
                  .setFooter({text: `Duration ${song.duration}`})
                  .setAuthor({name: interaction.user.tag })
-
+                 .setColor("AQUA")
         }
         
 

@@ -22,6 +22,7 @@ module.exports = {
                     new Discord.EmbedBuilder()
                         .setTitle("Bye for now!")
                         .setImage("https://tenor.com/bXgEm.gif")
+                        .setColor("AQUA")
                 ]
             })
         }

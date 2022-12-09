@@ -22,6 +22,7 @@ module.exports = {
                     new Discord.EmbedBuilder()
                         .setDescription(`Skipped **${currentSong.title}**`)
                         .setThumbnail(currentSong.thumbnail)
+                        .setColor("AQUA")
                 ]
             })
         }

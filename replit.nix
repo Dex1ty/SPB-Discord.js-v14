@@ -5,6 +5,7 @@
         pkgs.yarn
         pkgs.replitPackages.jest
         pkgs.libuuid
+        pkgs.python38Full
 	];
     env = { LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [pkgs.libuuid]; };
 }
